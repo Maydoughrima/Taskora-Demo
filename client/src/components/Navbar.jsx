@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="bg-[var(--primary)] p-2 md:p-4 lg:p-6 xl:p-8">
+      <nav className="bg-[var(--primary)] p-2 md:p-4 lg:px-6 lg:py-4 xl:px-8 xl:py-4">
         <div className="flex justify-between items-center">
           {/* logo */}
           <div className="Logo flex items-center font-semibold text-[var(--primary-text)]">
