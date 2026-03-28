@@ -20,7 +20,7 @@ export default function Navbar() {
           </div>
 
           {/* class-links */}
-          <ul className="nav-links hidden lg:flex gap-2">
+          <ul className="nav-links hidden lg:flex gap-4">
             <li>
               <Link
                 className="inline-block text-[var(--text-primary)] font-body

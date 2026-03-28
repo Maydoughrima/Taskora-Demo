@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default function Button({
     children, // is what i'll put in the button
