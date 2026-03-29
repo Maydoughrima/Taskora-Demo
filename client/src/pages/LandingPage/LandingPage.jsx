@@ -6,11 +6,18 @@ import { TiThListOutline } from "react-icons/ti";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { TbFileInvoice } from "react-icons/tb";
 import { PiMagicWand } from "react-icons/pi";
-import { FaCheck } from "react-icons/fa6";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import { RiProgress2Line } from "react-icons/ri";
+import { FaRegChartBar } from "react-icons/fa";
 import Button from "../../components/UI/Button";
 import demoImage from "../../assets/web-img1.jpg";
 import Card from "../../components/UI/Card";
 import PricingCard from "../../components/UI/Pricing-card";
+import Heading from "../../components/UI/SectionTitle";
+import Desc from "../../components/UI/SectionDescription";
+import WorkFlowCard from "../../components/UI/WorkflowsCard";
+import testimonialimg1 from "../../assets/test-img-1.png";
+import testimonialimg2 from "../../assets/test-img-2.png";
 
 export default function Login() {
   return (
@@ -84,23 +91,21 @@ export default function Login() {
       {/* FEATURES SECTION */}
       <section
         id="features-section"
-        className="flex flex-col gap-2 bg-[var(--secondary)] px-4 py-12 sm:px-6 lg:px-8 lg:py-12 overflow-hidden items-center"
+        className="flex flex-col gap-6 bg-[var(--secondary)] px-4 py-12 sm:px-6 lg:px-8 lg:py-12 overflow-hidden items-center"
       >
         {/* content-wrapper */}
         <div className="w-full flex flex-col items-center justify-center gap-6">
           {/* PAGE HEADER */}
           <div className="flex flex-col gap-2">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl text-center font-heading font-semibold text-[var(--text)] leading-tight">
-              Everything You Need To Know
-            </h2>
-            <p className="hidden md:block text-[color:rgba(0,0,0,0.6)] font-body text-sm sm:text-base md:text-lg text-center">
+            <Heading level={2}>Everything You Need to Know</Heading>
+            <Desc>
               Thoughtfully designed tools powered by AI to help you plan,
               prioritize, and stay focused.
-            </p>
+            </Desc>
           </div>
 
           {/* cards container */}
-          <div className="flex flex-col md:flex-row gap-2 md:gap-6">
+          <div className="w-full items-stretch flex flex-col md:flex-row gap-2 md:gap-6">
             <Card
               icon={<HiOutlineUserGroup className="w-4 h-4" />}
               title="Manage Client & Projects"
@@ -139,13 +144,11 @@ export default function Login() {
         <div className="w-full flex flex-col items-center justify-center gap-6">
           {/* PAGE HEADER */}
           <div className="flex flex-col gap-2">
-            <h2 className="text-2xl md:text-4xl lg:text-5xl text-center font-heading font-semibold text-[var(--text)] leading-tight">
-              Pricing That Scales With You
-            </h2>
-            <p className="hidden md:block text-[color:rgba(0,0,0,0.6)] font-body text-sm sm:text-base md:text-lg text-center">
+            <Heading level={2}>Pricing That Scales With You</Heading>
+            <Desc>
               Flexible plans designed for freelancers and teams to manage
               invoices effortlessly.
-            </p>
+            </Desc>
           </div>
           {/* pricing-card-container */}
           <div className="w-full flex flex-col items-stretch justify-center md:flex-row gap-2 md:gap-6">
@@ -167,6 +170,7 @@ export default function Login() {
               featuresClass="text-[var(--text)]"
               iconClass="text-[var(--text)]"
               btn="Get Started"
+              btnClass="transition-all hover:bg-[var(--accent)] duration-300 hover:-translate-y-1"
             />
 
             <PricingCard
@@ -187,7 +191,7 @@ export default function Login() {
               ]}
               featuresClass="text-[var(--text)]"
               btn="Upgrade to Pro"
-              btnClass="bg-transparent border border-[var(--text)]/50 text-[var(--text)]"
+              btnClass="bg-transparent border border-[var(--text)]/50 text-[var(--text)] transition-all hover:bg-[var(--accent)] duration-300 hover:-translate-y-1 hover:text-[var(--primary)]"
               iconClass="text-[var(--text)]"
             />
 
@@ -209,8 +213,200 @@ export default function Login() {
                 "Dedicated support & onboarding",
               ]}
               btn="Contact Sales"
-              btnClass="bg-transparent border border-[var(--text)]/50 text-[var(--primary)]"
+              btnClass="bg-transparent border border-[var(--text)]/50 text-[var(--primary)] transition-all hover:bg-[var(--accent)] duration-300 hover:-translate-y-1"
             />
+          </div>
+        </div>
+      </section>
+
+      {/* WORKFLOWS SECTION */}
+      <section
+        id="worflows-section"
+        className="flex flex-col lg:flex-row gap-6 bg-gradient-to-r from-[rgb(43,130,246,0.3)] to-[var(--primary)] px-4 py-12 sm:px-6 lg:px-8 lg:py-12 overflow-hidden items-center"
+      >
+        {/* content wrapper */}
+        <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-6">
+          {/* PAGE Title */}
+          <div className="order-1 lg:order-2">
+            <div className="flex flex-col gap-2">
+              <Heading level={2} className="lg:text-start">
+                Built for{" "}
+                <span className="text-[var(--accent)]">Efortless</span> Billing
+                From Setup to Payments
+              </Heading>
+              <Desc className="lg:text-start">
+                Everything you need to create, send, and track invoices
+                streamlined in one simple platform.
+              </Desc>
+            </div>
+          </div>
+
+          {/* PAGE CONTENT */}
+          <div className="order-2 lg:order-1 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-1 lg:grid-cols-2 gap-4">
+              <WorkFlowCard
+                icon={<AiOutlineUserAdd />}
+                stepName="Step 1"
+                step="01"
+                title="Sign up & Add Clients"
+                description="Create an account and add your clients in seconds."
+              />
+
+              <WorkFlowCard
+                icon={<TbFileInvoice />}
+                stepName="Step 2"
+                step="02"
+                title="Create Projects & Invoices"
+                description="Set up projects and generate invoices in minutes."
+              />
+              <WorkFlowCard
+                icon={<RiProgress2Line />}
+                stepName="Step 3"
+                step="03"
+                title="Track Progress & AI Insights"
+                description="Monitor progress and get smart, actionable insights."
+              />
+              <WorkFlowCard
+                icon={<FaRegChartBar />}
+                stepName="Step 4"
+                step="04"
+                title="Analyze Reports & Optimize Work"
+                description="Analyze performance and improve your workflow."
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* testimony section */}
+      <section
+        id="testimony-section"
+        className="flex flex-col gap-6 bg-[var(--secondary)] px-4 py-12 sm:px-6 lg:px-8 lg:py-12 overflow-hidden items-center"
+      >
+        {/* content wrapper */}
+        <div className="w-full flex flex-col items-center justify-center gap-6">
+          {/* Page header */}
+          <div className="flex flex-col gap-2">
+            <Heading level={2}>Trusted by Professionals Worldwide</Heading>
+            <Desc>
+              See how teams and freelancers use Taskora to simplify invoicing
+              and stay productive.
+            </Desc>
+          </div>
+
+          {/* CARD CONTAINER */}
+          <div className="w-full flex flex-col items-stretch justify-center md:flex-row gap-2 md:gap-6">
+            {/* card1 */}
+            <div className="flex flex-col px-4 py-12 gap-4 border border-[var(--text)]/50 rounded-lg">
+              {/* image */}
+              <div className="pl-6 mb-4">
+                <img
+                  src={testimonialimg1}
+                  alt="user-img-1"
+                  className="w-[107px] h-[107px] rounded-full"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="gap-20 flex flex-col">
+                <div className="flex flex-col gap-2">
+                  <h4 className="font-heading font-semibold text-xl text-[var(--text)]">
+                    “Taskora helped me simplify how I manage clients and
+                    invoices.”
+                  </h4>
+                  <p className="font-body text-[var(--text)]">
+                    Everything is easy to understand, and I always know what
+                    needs to be done next. It keeps my work organized without
+                    feeling overwhelming.
+                  </p>
+                </div>
+                {/* footer */}
+                <div className="footer">
+                  <h3 className="text-[var(--text)] text-lg font-body font-semibold">
+                    Hannah Cole
+                  </h3>
+                  <p className="font-body text-[rgba(0,0,0,0.5)]">
+                    Freelance Creative
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className="group relative flex flex-col px-4 py-12 gap-4 border border-[var(--text)]/50 rounded-lg bg-cover bg-center transition-colors duration-300"
+              style={{ backgroundImage: `url(${testimonialimg2})` }}
+            >
+              {/* Overlay for hover */}
+              <div className="absolute inset-0 bg-[var(--secondary)] opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></div>
+
+              {/* image */}
+              <div className="invisible pl-6 mb-4 group-hover:visible transition-opacity duration-300 relative z-10">
+                <img
+                  src={testimonialimg1}
+                  alt="user-img-1"
+                  className="w-[107px] h-[107px] rounded-full"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="flex flex-col gap-20 relative z-10">
+                <div className="invisible group-hover:visible transition-opacity duration-300 flex flex-col gap-2">
+                  <h4 className="font-heading font-semibold text-xl text-[var(--text)]">
+                    “Taskora helped me simplify how I manage clients and
+                    invoices.”
+                  </h4>
+                  <p className="font-body text-[var(--text)]">
+                    Everything is easy to understand, and I always know what
+                    needs to be done next. It keeps my work organized without
+                    feeling overwhelming.
+                  </p>
+                </div>
+                {/* footer */}
+                <div className="footer relative z-10">
+                  <h3 className="text-[var(--primary)] group-hover:text-[var(--text)] text-lg font-body font-semibold">
+                    Hannah Cole
+                  </h3>
+                  <p className="font-body text-[var(--primary)] group-hover:text-[var(--text)]">
+                    Freelance Creative
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col px-4 py-12 gap-4 border border-[var(--text)]/50 rounded-lg">
+              {/* image */}
+              <div className="pl-6 mb-4">
+                <img
+                  src={testimonialimg1}
+                  alt="user-img-1"
+                  className="w-[107px] h-[107px] rounded-full"
+                />
+              </div>
+
+              {/* Content */}
+              <div className="gap-20 flex flex-col">
+                <div className="flex flex-col gap-2">
+                  <h4 className="font-heading font-semibold text-xl text-[var(--text)]">
+                    “Taskora helped me simplify how I manage clients and
+                    invoices.”
+                  </h4>
+                  <p className="font-body text-[var(--text)]">
+                    Everything is easy to understand, and I always know what
+                    needs to be done next. It keeps my work organized without
+                    feeling overwhelming.
+                  </p>
+                </div>
+                {/* footer */}
+                <div className="footer">
+                  <h3 className="text-[var(--text)] text-lg font-body font-semibold">
+                    Hannah Cole
+                  </h3>
+                  <p className="font-body text-[rgba(0,0,0,0.5)]">
+                    Freelance Creative
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

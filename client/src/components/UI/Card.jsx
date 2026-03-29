@@ -13,7 +13,7 @@ const Card = ({
   ctaClass = "",
 }) => {
   return (
-    <div className={`flex flex-col border gap-4 p-4 rounded-md border-[var(--text)]/50 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 ${className}`}>
+    <div className={`flex flex-1 flex-col border gap-4 p-4 rounded-md border-[var(--text)]/50 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1 ${className}`}>
       
       {/* icon */}
       <div className={`flex w-max items-center justify-center p-2 rounded-md bg-[var(--accent)] text-[var(--primary)] ${iconClass}`}>
@@ -22,7 +22,7 @@ const Card = ({
 
       {/* title & subtext */}
       <div className="flex flex-col gap-2">
-        <h4 className={`card-title text-lg font-heading ${titleClass}`}>{title}</h4>
+        <h4 className={`card-title text-lg font-heading font-semibold ${titleClass}`}>{title}</h4>
         <p className={`text-[rgba(0,0,0,0.6)] font-body text-sm ${descClass}`}>
           {description}
         </p>
