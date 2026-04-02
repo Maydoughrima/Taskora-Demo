@@ -36,7 +36,7 @@ const WorkFlowCard = ({
 
       {/* content */}
       <div className="flex flex-col gap-2">
-        <h4 className="font-head font-semibold text-xl text-[var(--text)] group-hover:text-[var(--primary)]">
+        <h4 className="font-heading font-semibold text-xl text-[var(--text)] group-hover:text-[var(--primary)]">
           {title}
         </h4>
         <p className="text-sm font-body text-[rgba(0,0,0,0.6)] group-hover:text-[var(--primary)]">
