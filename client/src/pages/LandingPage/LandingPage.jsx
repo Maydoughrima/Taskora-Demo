@@ -21,82 +21,14 @@ import TesCardSec from "../../components/UI/TestimonyCard-sec";
 import testimonialimg1 from "../../assets/test-img-1.png";
 import testimonialimg2 from "../../assets/test-img-2.png";
 import testimonialimg3 from "../../assets/test-img-3.png";
-import LOGO from "../../assets/LOGO.png";
-import { Link } from "react-router-dom";
-import { FaFacebookF } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
-import FooterLinks from "../../components/UI/FooterLinks";
-import { LuCopyright } from "react-icons/lu";
+import Footer from "../../components/UI/Footer";
+import HeroSection from "../../components/HeroSection";
 
 export default function Login() {
   return (
     <>
       {/* HERO SECTION */}
-      <section
-        id="hero-section"
-        className="relative min-h-screen flex flex-col justify-center items-center gap-8 bg-gradient-to-b from-[rgb(43,130,246,0.2)] to-[var(--primary)] px-4 sm:px-6 lg:px-8 lg:py-12 overflow-hidden"
-      >
-        {/* CONTENT WRAPPER */}
-        <div className="w-full max-w-5xl flex flex-col items-center text-center gap-6">
-          {/* AI FEATURE LABEL */}
-          <div className="flex items-center gap-2 text-[var(--text)] bg-[var(--secondary)] px-4 py-2 border border-black/10 rounded-full shadow-sm transition hover:bg-[var(--accent)] hover:text-[var(--primary)] duration-300">
-            <FaWandMagicSparkles className="text-sm sm:text-base" />
-            <p className="font-body text-xs sm:text-sm">
-              New Smart Task AI Feature
-            </p>
-          </div>
-
-          {/* HERO TEXT */}
-          <div className="flex flex-col items-center gap-3 max-w-3xl">
-            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[var(--text)] leading-tight">
-              Focus on What Matters.{" "}
-              <span className="text-[var(--accent)]">Taskora</span> Handles the
-              Rest
-            </h1>
-
-            <p className="text-[color:rgba(0,0,0,0.6)] font-body text-sm sm:text-base md:text-lg">
-              An AI-powered system that plans, prioritizes, and adapts to your
-              workflow.
-            </p>
-          </div>
-
-          {/* BUTTONS */}
-          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-            <Button className="shadow-sm w-full sm:w-auto">Get Started</Button>
-            <Button className="shadow-sm w-full sm:w-auto" variant="secondary">
-              Book a Demo
-            </Button>
-          </div>
-        </div>
-
-        {/* HERO IMAGE */}
-        <div className="w-full max-w-5xl mt-5 px-2 sm:px-4">
-          <img
-            src={demoImage}
-            alt="demo-image"
-            className="w-full rounded-xl shadow-[0_0_30px_rgba(99,102,241,0.3)] border border-black/10"
-          />
-        </div>
-
-        {/* FLOATING ELEMENTS */}
-        <div className="absolute inset-0 hidden lg:block floating pointer-events-none">
-          <div className="absolute top-[8%] right-[12%] text-[var(--accent)] bg-[var(--secondary)] p-3 rounded-xl shadow-sm transition duration-300 hover:bg-[var(--accent)] hover:text-[var(--primary)] hover:shadow-[0_0_50px_rgb(99,102,241)] pointer-events-auto">
-            <IoBarChartOutline />
-          </div>
-
-          <div className="absolute top-[24%] right-[15%] text-[var(--accent)] bg-[var(--secondary)] p-3 rounded-xl shadow-sm transition duration-300 hover:bg-[var(--accent)] hover:text-[var(--primary)] hover:shadow-[0_0_50px_rgb(99,102,241)] pointer-events-auto">
-            <TiThListOutline />
-          </div>
-
-          <div className="absolute top-[24%] left-[15%] text-[var(--accent)] bg-[var(--secondary)] p-3 rounded-xl shadow-sm transition duration-300 hover:bg-[var(--accent)] hover:text-[var(--primary)] hover:shadow-[0_0_50px_rgb(99,102,241)] pointer-events-auto">
-            <AiOutlineFileDone />
-          </div>
-          <div className="absolute top-[8%] left-[12%] text-[var(--accent)] bg-[var(--secondary)] p-3 rounded-xl shadow-sm transition duration-300 hover:bg-[var(--accent)] hover:text-[var(--primary)] hover:shadow-[0_0_50px_rgb(99,102,241)] pointer-events-auto">
-            <MdOutlineCloudDone />
-          </div>
-        </div>
-      </section>
+      <HeroSection/>
 
       {/* FEATURES SECTION */}
       <section
@@ -339,80 +271,7 @@ export default function Login() {
         id="footer"
         className="flex flex-col gap-6 bg-[var(--secondary)] px-4 py-8 sm:px-6 lg:px-8 lg:pt-20 overflow-hidden items-center border border-t"
       >
-        {/* content wrapper */}
-        <div className="w-full flex flex-col justify-between gap-4 md:gap-8">
-          <div className="w-full flex flex-col lg:flex-row lg:justify-between gap-4 md:gap-8">
-            {/* left */}
-            <div className="flex flex-col gap-4 lg:max-w-lg">
-              {/* header */}
-              <div className="flex gap-4 items-center">
-                <img
-                  src={LOGO}
-                  alt="logo"
-                  className="w-[40px] h-[40px] bg-center"
-                />
-                <h4 className="font-heading font-semibold text-xl text-[var(--text)]">
-                  Taskora
-                </h4>
-              </div>
-              {/* Description */}
-              <p className="font-body text-sm text-[var(--text)]">
-                Taskora helps teams turn everyday tasks, projects, and invoices
-                into a streamlined workflow — so work stays organized, progress
-                is visible, and decisions are easier to make.
-              </p>
-              {/* icons */}
-              <div className="flex gap-2">
-                <Link className="inline-block text-[var(--text)] text-2xl">
-                  <FaFacebookF />
-                </Link>
-                <Link className="inline-block text-[var(--text)] text-2xl">
-                  <FaXTwitter />
-                </Link>
-                <Link className="inline-block text-[var(--text)] text-2xl">
-                  <FaInstagram />
-                </Link>
-              </div>
-            </div>
-
-            {/* right */}
-            <div className="flex gap-6 ">
-              <FooterLinks />
-            </div>
-          </div>
-
-          {/* Bottom */}
-          <div className="flex flex-col md:flex-row justify-between item-center gap-10">
-            {/* LEFT */}
-            <div className="order-2 md:order-1">
-              <p className="inline-flex text-sm md:text-base items-center gap-4 text-[color:rgba(0,0,0,0.6)] font-body">
-                <LuCopyright className="text-xl" />
-                2026 Taskora. All rights reserved.
-              </p>
-            </div>
-            {/* right */}
-            <div className="flex flex-col md:flex-row gap-2 order-1 md:order-2">
-              <Link
-                to="/"
-                className="text-[color:rgba(0,0,0,0.6)] font-body underline underline-offset-4 decoration-[color:rgba(0,0,0,0.6)]"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                to="/"
-                className="text-[color:rgba(0,0,0,0.6)] font-body underline underline-offset-4 decoration-[color:rgba(0,0,0,0.6)]"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                to="/"
-                className="text-[color:rgba(0,0,0,0.6)] font-body underline underline-offset-4 decoration-[color:rgba(0,0,0,0.6)]"
-              >
-                Cookies
-              </Link>
-            </div>
-          </div>
-        </div>
+        <Footer/>
       </footer>
     </>
   );
