@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 
 export default function Button({
     children, // is what i'll put in the button
     variant = "primary", // the default variant
     className = "", // empty so I can add other styles
+    to,
     ...props //collect props and pass to the button
 }) {
 
@@ -13,6 +15,18 @@ export default function Button({
     secondary: "bg-[var(--secondary)] text-[var(--text)] text=ctatxt font-body border border-black/10 shadow-sm",
     danger: "bg-[var(--danger)] text-white text=ctatxt font-body shadow-sm",
   };
+
+  if (to) {
+    return(
+      <Link
+      to={to}
+      className={`${baseStyles} ${variants[variant]} ${className}`}
+      {...props}
+      >
+        {children}
+      </Link>
+    );
+  }
   return (
     <button
       className={`${baseStyles} ${variants[variant]} ${className}`}

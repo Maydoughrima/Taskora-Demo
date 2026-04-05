@@ -2,10 +2,12 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 /* Layout */
 import AppLayout from "./layouts/AppLayout";
+import DashboardLayouts from "./layouts/DashboardLayouts";
 
 /* Pages */
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Dashboard from "./pages/app/Dashboard";
+import Products from "./pages/app/Products";
 
 function App() {
   return (
@@ -16,11 +18,12 @@ function App() {
 
         {/* Landing Page (Home) */}
         <Route path="/" element={<LandingPage />} />
+      </Route>
 
-        {/* Optional Pages */}
+      <Route element = {<DashboardLayouts/>}>
+       {/* Optional Pages */}
         <Route path="/dashboard" element={<Dashboard />} />
-
-
+        <Route path="/products" element={<Products />} /> 
       </Route>
 
       {/* Fallback */}

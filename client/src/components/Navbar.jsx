@@ -1,10 +1,20 @@
-import React from "react";
 import { useState } from "react";
 import logo from "../assets/LOGO.png";
 import { IoMenu } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "./UI/Button";
 import { IoClose } from "react-icons/io5";
+import { AiOutlineProduct } from "react-icons/ai";
+import { IoSparklesOutline } from "react-icons/io5";
+import { IoCartOutline } from "react-icons/io5";
+import { HiOutlineUsers } from "react-icons/hi";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { IoSettingsOutline } from "react-icons/io5";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { IoHelpCircleOutline } from "react-icons/io5";
+import { HiOutlineUserCircle } from "react-icons/hi";
+import pfp from "../assets/test-img-1.png";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +32,7 @@ export default function Navbar() {
           {/* class-links */}
           <ul className="nav-links hidden lg:flex gap-4">
             <li>
-              <Link
+              <NavLink
                 className="inline-block text-[var(--text-primary)] font-body
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
@@ -30,10 +40,10 @@ export default function Navbar() {
                 to="/products"
               >
                 Products
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 className="inline-block text-[var(--text-primary)] font-body
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
@@ -41,10 +51,10 @@ export default function Navbar() {
                 to="/features"
               >
                 Features
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 className="inline-block text-[var(--text-primary)] font-body
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
@@ -52,10 +62,10 @@ export default function Navbar() {
                 to="/pricing"
               >
                 Pricing
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 className="inline-block text-[var(--text-primary)] font-body
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
@@ -63,10 +73,10 @@ export default function Navbar() {
                 to="/customers"
               >
                 Customers
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
+              <NavLink
                 className="inline-block text-[var(--text-primary)] font-body
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
@@ -74,7 +84,7 @@ export default function Navbar() {
                 to="/contactUs"
               >
                 Contact Us
-              </Link>
+              </NavLink>
             </li>
           </ul>
 
@@ -111,48 +121,159 @@ export default function Navbar() {
       </nav>
       {/* Mobile Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-full bg-white z-50 p-6
+        className={`flex flex-col fixed top-0 right-0 h-full w-full bg-white z-50 p-6
         transform transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "translate-x-full"}
         lg:hidden`}
       >
         {/* Close Button */}
-        <div className="flex p-2 justify-end border-b border-black/10">
-          <button
-            onClick={() => setIsOpen(false)}
-          >
-           <IoClose className="text-2xl text-[var(--cta)]"/>
+        <div className="flex p-2 justify-between border-b border-black/10">
+          <NavLink to="/">
+            <img src={logo} alt="logo-img" className="w-[50px] h-[50px]" />
+          </NavLink>
+          <button onClick={() => setIsOpen(false)}>
+            <IoClose className="text-2xl text-[var(--cta)]" />
           </button>
         </div>
 
-        {/* Links */}
-        <ul className="flex flex-col gap-6 mt-8">
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/products">
-              Products
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/features">
-              Features
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/pricing">
-              Pricing
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/customers">
-              Customers
-            </Link>
-          </li>
-          <li>
-            <Link onClick={() => setIsOpen(false)} to="/contactUs">
-              Contact Us
-            </Link>
-          </li>
-        </ul>
+        <div className="flex flex-col justify-between h-full gap-8">
+          {/* Links */}
+          <ul className="flex flex-col gap-2 mt-8">
+            <li>
+              <NavLink
+                onClick={() => setIsOpen(false)}
+                to="/products"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                }
+              >
+                <AiOutlineProduct className="text-xl fill-current" />
+                Products
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => setIsOpen(false)}
+                to="/features"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                }
+              >
+                <IoSparklesOutline className="text-xl fill-current" />
+                Features
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => setIsOpen(false)}
+                to="/pricing"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                }
+              >
+                <IoCartOutline className="text-xl fill-current" />
+                Pricing
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => setIsOpen(false)}
+                to="/customers"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                }
+              >
+                <HiOutlineUsers className="text-xl" />
+                Customers
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                onClick={() => setIsOpen(false)}
+                to="/contactUs"
+                className={({ isActive }) =>
+                  `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                }
+              >
+                <IoChatbubblesOutline className="text-xl fill-current" />
+                Contact Us
+              </NavLink>
+            </li>
+          </ul>
+
+          <div className="bottom-nav">
+            <ul className="flex flex-col gap-2 mt-8">
+              <li>
+                <NavLink
+                  onClick={() => setIsOpen(false)}
+                  to="/notification"
+                  className={({ isActive }) =>
+                    `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                  }
+                >
+                  <IoNotificationsOutline className="text-xl fill-current" />
+                  Notification
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setIsOpen(false)}
+                  to="/settings"
+                  className={({ isActive }) =>
+                    `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                  }
+                >
+                  <IoSettingsOutline className="text-xl fill-current" />
+                  Settings
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setIsOpen(false)}
+                  to="/docs"
+                  className={({ isActive }) =>
+                    `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                  }
+                >
+                  <HiOutlineDocumentText className="text-xl" />
+                  Docs
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  onClick={() => setIsOpen(false)}
+                  to="/help"
+                  className={({ isActive }) =>
+                    `inline-flex items-center gap-2 font-body font-medium p-2 w-full rounded-md
+              ${isActive ? "bg-[var(--cta)] text-[var(--primary)]" : "text-[color:rgba(0,0,0,0.6)]"}`
+                  }
+                >
+                  <IoHelpCircleOutline className="text-xl fill-current" />
+                  Help
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+
+          <div className="user-profile flex justify-between items-center p-2 py-4 border-t">
+            <div className="flex items-center gap-4">
+              <img src={pfp} alt="pfp-img"
+            className="rounded-md w-[40px] h-[40px]"
+            />
+
+            <p className="text-[var(--text)] font-body font-medium">Jane Does</p>   
+            </div>   
+            <HiOutlineUserCircle className="text-[var(--cta)] text-2xl" />
+          </div>
+        </div>
       </div>
     </>
   );

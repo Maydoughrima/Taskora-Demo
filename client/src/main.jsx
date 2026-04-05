@@ -7,7 +7,7 @@ import "./styles/float.css"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/Taskora-Demo">
       <App />
     </BrowserRouter>
   </React.StrictMode>

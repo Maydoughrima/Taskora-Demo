@@ -54,7 +54,7 @@ export default function HeroSection() {
         <div
           className={`flex flex-col sm:flex-row gap-3 w-full sm:w-auto transition-all duration-1000 ${animate ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-20"}`}
         >
-          <Button className="shadow-sm w-full sm:w-auto">Get Started</Button>
+          <Button to="/dashboard" className="shadow-sm w-full sm:w-auto">Get Started</Button>
           <Button className="shadow-sm w-full sm:w-auto" variant="secondary">
             Book a Demo
           </Button>

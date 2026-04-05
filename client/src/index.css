@@ -7,9 +7,12 @@
   --secondary: #F1F3F5;
   --text: #1F2933;
   --cta: #2B82F6;
-  --danger: #EF4444;
+  --danger: #EF444424;
+  --danger400: #EF4444;
   --accent: #6366F1;
   --highlight: #F59E0B;
+  --positive: #28A74524;
+  --positive400: #367839;
 }
 
 .dark {
