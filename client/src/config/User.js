@@ -10,4 +10,6 @@ export const User = {
     ActiveProjects: 30,
     TotalInvoiceGrowth: -13,
     TotalInvoice: 25,
+    TotalRevenue: 450000,
+    RevenueGrowth: -2,
 }

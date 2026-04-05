@@ -1,6 +1,6 @@
 import Strip from "../../components/Strip";
 import DashHero from "../../components/DashHero";
-import SummaryCard from "../../components/UI/DashboardSummaryCard";
+import DashboardSummary from "../../components/UI/DashboardSummary"
 
 export default function Dashboard() {
   return(
@@ -10,7 +10,7 @@ export default function Dashboard() {
     {/* PREMIUM BANNER STRIP */}
     <Strip/>
     {/* SUMMARY CARDS */}
-    <SummaryCard/>
+    <DashboardSummary/>
     </>
   );
 }

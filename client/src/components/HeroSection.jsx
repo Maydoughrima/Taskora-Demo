@@ -17,7 +17,7 @@ export default function HeroSection() {
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex flex-col justify-center items-center gap-8 bg-gradient-to-b from-[rgb(43,130,246,0.2)] to-[var(--primary)] px-4 sm:px-6 lg:px-8 lg:py-12 overflow-hidden"
+      className="relative flex flex-col justify-center items-center gap-8 bg-gradient-to-b from-[rgb(43,130,246,0.2)] to-[var(--primary)] px-4 pt-12 sm:px-6 lg:px-8 lg:py-12 overflow-hidden"
     >
       {/* CONTENT WRAPPER */}
       <div className="w-full max-w-5xl flex flex-col items-center text-center gap-6">
