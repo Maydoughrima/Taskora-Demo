@@ -1,6 +1,6 @@
 export const navItems = [
     {label:"Dashboard", path:"/dashboard", icon:"home", section: "Main"},
-    {label:"My Tasks", path:"/myTask", icon:"clipboard", section: "Main"},
+    {label:"My Tasks", path:"/myTasks", icon:"clipboard", section: "Main"},
     {label:"Calendar", path:"/calendar", icon:"calendar", section: "Main"},
     {label:"Client List", path:"/clientList", icon:"users", section: "Management"},
     {label:"Project List", path:"/projectList", icon:"folder", section: "Management"},

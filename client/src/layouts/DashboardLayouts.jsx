@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 
 export default function DashboardLayouts() {
   return (
-    <div className="min-h-screen bg-[var(--bg)]">
+    <div className="h-screen bg-[var(--bg)]">
       {/* Desktop & Tablet Layout */}
       <div className="hidden lg:flex min-h-screen">
         {/* Sidebar with fixed width */}

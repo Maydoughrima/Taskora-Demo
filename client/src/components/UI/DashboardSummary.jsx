@@ -29,7 +29,7 @@ export default function DashboardSummary() {
 
   return (
     <section className="flex flex-col w-full p-2 pt-4 md:px-6 lg:px-4">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
         {cards.map((card, index) => (
           <DashboardSummaryCard
             key={index}

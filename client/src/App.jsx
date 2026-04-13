@@ -3,11 +3,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
 /* Layout */
 import AppLayout from "./layouts/AppLayout";
 import DashboardLayouts from "./layouts/DashboardLayouts";
+import MyTasksLayout from "./layouts/MyTasksLayout";
 
 /* Pages */
 import LandingPage from "./pages/LandingPage/LandingPage";
 import Dashboard from "./pages/app/Dashboard";
 import Products from "./pages/app/Products";
+import MyTasks from "./pages/app/MyTasks";
 
 function App() {
   return (
@@ -24,6 +26,11 @@ function App() {
        {/* Optional Pages */}
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/products" element={<Products />} /> 
+      </Route>
+
+      <Route element = {<MyTasksLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/myTasks" element={<MyTasks/>} />
       </Route>
 
       {/* Fallback */}

@@ -15,7 +15,7 @@ const SummaryCard = ({
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <p className="font-body font-semibold text-lg text-[color:rgb(0,0,0,0.7)]">
+          <p className="font-heading font-semibold text-md text-[color:rgb(0,0,0,0.7)]">
             {title}
           </p>
           <IoIosInformationCircleOutline className="text-lg text-inherit" />
