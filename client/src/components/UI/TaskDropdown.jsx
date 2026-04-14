@@ -1,80 +1,61 @@
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 
-const TaskDropdown = ({ btnclass = "", onSelect }) => {
+const TaskDropdown = ({
+  btnclass,
+  onSelect,
+  getStatusColor,
+  getTextColor,
+  getPriorityColor,
+  options = [],
+  defaultValue = "Select",
+  showIndicator = true,
+}) => {
   const [open, setOpen] = useState(false);
-  const [selected, setSelected] = useState("To Do");
-
-  const options = ["To Do", "In Progress", "Completed", "Overdue"];
-
-  //  Color mapping
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "To Do":
-        return "bg-gray-800";
-      case "In Progress":
-        return "bg-[var(--highlight)]";
-      case "Completed":
-        return "bg-[var(--accent)]";
-      case "Overdue":
-        return "bg-[var(--danger400)]";
-      default:
-        return "bg-gray-800";
-    }
-  };
-
-  // Color mapping
-  const getTextColor = (status) => {
-    switch (status) {
-      case "To Do":
-        return "text-[var(--text)]";
-      case "In Progress":
-        return "text-[var(--highlight)]";
-      case "Completed":
-        return "text-[var(--accent)]";
-      case "Overdue":
-        return "text-[var(--danger400)]";
-      default:
-        return "text-[var(--text)]";
-    }
-  };
+  const [selected, setSelected] = useState(defaultValue);
 
   return (
-    <div className="relative w-40">
+    <div className="relative">
       <button
         onClick={() => setOpen(!open)}
-        className={`flex items-center gap-4 rounded-md border p-2 px-4 ${btnclass}`}
+        className={`flex items-center gap-4 rounded-md border p-2 px-4 text-[var(--text)] whitespace-nowrap ${
+          typeof btnclass === "function" ? btnclass(selected) : btnclass
+        }`}
       >
         {/* LEFT SIDE */}
         <div className="flex items-center gap-2">
-          {/* Vertical bar */}
-          <div
-            className={`w-1.5 h-5 rounded-sm ${getStatusColor(selected)}`}
-          ></div>
+          {showIndicator && getStatusColor && (
+            <div
+              className={`w-1.5 h-5 rounded-sm ${getStatusColor(selected)}`}
+            />
+          )}
 
-          <span className={`font-body text-sm ${getTextColor(selected)}`}>{selected}</span>
+          <span className={`font-body text-sm ${getTextColor?.(selected)}`}>
+            {selected}
+          </span>
         </div>
 
         {/* RIGHT SIDE */}
-        <IoIosArrowDown className="text-[var(--text)]"/>
+        <IoIosArrowDown className="text-[var(--text)]" />
       </button>
 
       {open && (
-        <ul className="absolute w-full bg-[var(--primary)] mt-1 border z-10">
+        <ul className="absolute bg-[var(--primary)] text-sm font-body w-40 mt-1 border z-10">
           {options.map((item) => (
             <li
               key={item}
               onClick={() => {
                 setSelected(item);
                 setOpen(false);
-                onSelect && onSelect(item);
+                onSelect?.(item);
               }}
               className="flex items-center gap-2 px-4 py-2 hover:bg-[var(--highlights)] cursor-pointer"
             >
-              {/* 🔥 indicator inside dropdown too */}
-              <div
-                className={`w-1.5 h-5 rounded-sm ${getStatusColor(item)}`}
-              ></div>
+              {showIndicator && getStatusColor && (
+                <div
+                  className={`w-1.5 h-5 rounded-sm ${getStatusColor(item)}`}
+                />
+              )}
 
               {item}
             </li>
