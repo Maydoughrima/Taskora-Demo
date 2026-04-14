@@ -1,5 +1,5 @@
 import { IoSearchOutline } from "react-icons/io5";
-import Button from "../../components/UI/Button";
+import Button from "./Button";
 import { MdOutlineFilterAlt } from "react-icons/md";
 import { IoOptionsOutline } from "react-icons/io5";
 import { IoAddOutline } from "react-icons/io5";

@@ -77,4 +77,37 @@ export const User = {
             deadlinestatus: "Upcoming",
         },
     ],
+
+    toDo:[
+        {
+            taskId: "TSK-321",
+            taskName: "Design Dashboard UI Layout",
+            clientName: "Johan Doe",
+            projectName: "Payroll System",
+            progress: "0%",
+            deadline: "2026-05-06",
+            priority: "High",
+            
+        },
+        {
+            taskId: "TSK-352",
+            taskName: "Fix Responsive Navigation Bug",
+            clientName: "Sam Milby",
+            projectName: "Smart Helmet",
+            progress: "0%",
+            deadline: "2026-07-04",
+            priority: "Medium",
+            
+        },
+        {
+            taskId: "TSK-432",
+            taskName: "Create Client Project Wireframes",
+            clientName: "John Stone",
+            projectName: "CSIT Fest Site",
+            progress: "0%",
+            deadline: "2026-09-06",
+            priority: "Low",
+            
+        },
+    ],
 };
