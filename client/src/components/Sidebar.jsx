@@ -14,7 +14,7 @@ export default function Sidebar({ className = "" }) {
     <aside
       className={`${className} flex flex-col w-64 h-screen p-2 bg-[var(--primary)] border-r shadow-md`}
     >
-      <div className="flex flex-col justify-between h-full">
+      <div className="flex flex-col h-full">
 
         {/* logo */}
         <div className="image-container flex items-center border-b">
@@ -63,7 +63,7 @@ export default function Sidebar({ className = "" }) {
           ))}
         </div>
 
-        <div className="flex gap-2 items-center">
+        <div className="flex mt-auto gap-2 items-center">
           <img src={user.image} alt="user-pfp" className="w-[50px] h-[50px] rounded-full" />
           <div className="flex flex-col">
            <p className="font-body text-[var(--text)]">{user.name}</p>

@@ -78,15 +78,16 @@ export const User = {
         },
     ],
 
-    toDo:[
+    tasks:[
         {
             taskId: "TSK-321",
             taskName: "Design Dashboard UI Layout",
             clientName: "Johan Doe",
             projectName: "Payroll System",
-            progress: "0%",
+            progress: "0",
             deadline: "2026-05-06",
             priority: "High",
+            status: "To Do"
             
         },
         {
@@ -94,9 +95,10 @@ export const User = {
             taskName: "Fix Responsive Navigation Bug",
             clientName: "Sam Milby",
             projectName: "Smart Helmet",
-            progress: "0%",
+            progress: "0",
             deadline: "2026-07-04",
             priority: "Medium",
+            status: "To Do"
             
         },
         {
@@ -104,9 +106,76 @@ export const User = {
             taskName: "Create Client Project Wireframes",
             clientName: "John Stone",
             projectName: "CSIT Fest Site",
-            progress: "0%",
+            progress: "0",
             deadline: "2026-09-06",
             priority: "Low",
+            status: "To Do"
+            
+        },
+        {
+            taskId: "TSK-005",
+            taskName: "Update UI Layout",
+            clientName: "Sam Sulek",
+            projectName: "TaskFlow App",
+            progress: "10",
+            deadline: "2026-04-26",
+            priority: "High",
+            status: "In Progress"
+            
+        },
+        {
+            taskId: "TSK-012",
+            taskName: "Optimize Mobile View",
+            clientName: "John Dao",
+            projectName: "CareSync Platform",
+            progress: "40",
+            deadline: "2026-05-14",
+            priority: "Medium",
+            status: "In Progress"
+            
+        },
+        {
+            taskId: "TSK-013",
+            taskName: "Test User Flow",
+            clientName: "Sassy Ser",
+            projectName: "Nova Dashboard",
+            progress: "03",
+            deadline: "2026-08-26",
+            priority: "Low",
+            status: "In Progress"
+            
+        },
+        {
+            taskId: "TSK-0025",
+            taskName: "Improve UI Spacing",
+            clientName: "Sam Sulek",
+            projectName: "Pulse System",
+            progress: "100%",
+            deadline: "2025-01-04",
+            priority: "Low",
+            status: "Completed"
+            
+        },
+        {
+            taskId: "TSK-120",
+            taskName: "Debug API Response",
+            clientName: "John Dao",
+            projectName: "Orbit Platform",
+            progress: "10",
+            deadline: "2024-07-2",
+            priority: "Medium",
+            status: "Completed"
+            
+        },
+        {
+            taskId: "TSK-233",
+            taskName: "Redesign card Layout",
+            clientName: "Sassy Ser",
+            projectName: "Vertex Dashboard",
+            progress: "100",
+            deadline: "2026-03-16",
+            priority: "Low",
+            status: "Completed"
             
         },
     ],

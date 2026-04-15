@@ -19,7 +19,7 @@ export default function MyTasksLayout() {
           {/* Mobile Layout */}
           <div className="flex flex-col lg:hidden min-h-screen">
             <NavMobile className="fixed"/>
-            <main className="flex-1">
+            <main className="flex-1 mt-4">
               <Outlet />
             </main>
           </div>

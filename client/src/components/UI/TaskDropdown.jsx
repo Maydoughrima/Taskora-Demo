@@ -6,7 +6,6 @@ const TaskDropdown = ({
   onSelect,
   getStatusColor,
   getTextColor,
-  getPriorityColor,
   options = [],
   defaultValue = "Select",
   showIndicator = true,
