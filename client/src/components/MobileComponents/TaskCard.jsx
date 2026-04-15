@@ -1,10 +1,9 @@
 import TaskDropdown from "../UI/TaskDropdown";
 import Button from "../UI/Button";
 import TaskCardContent from "./TaskCardContent";
-import { User } from "../../config/User";
-import { useState } from "react";
+import {  useState } from "react";
 
-export default function TaskCard() {
+export default function TaskCard({tasks = []}) {
   //  Color mapping
   const getStatusColor = (status) => {
     switch (status) {
@@ -44,6 +43,7 @@ export default function TaskCard() {
   };
   const [statusFilter, setStatusFilter] = useState("To Do");
   const [priorityFilter, setPriorityFilter] = useState("All");
+
   return (
     <section className="flex w-full p-2 md:px-6 lg:px-4">
       {/* CARD CONTAINER */}
@@ -92,7 +92,7 @@ export default function TaskCard() {
         </div>
 
         <div className="flex flex-col gap-3">
-          {User.tasks
+          {tasks
             .filter((task) => {
               const statusMatch = task.status === statusFilter;
               const priorityMatch =

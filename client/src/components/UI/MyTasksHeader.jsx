@@ -7,7 +7,7 @@ import { IoListOutline } from "react-icons/io5";
 import { MdOutlineDashboard } from "react-icons/md";
 import { IoCalendarOutline } from "react-icons/io5";
 
-export default function MyTasksHeader() {
+export default function MyTasksHeader({onAddClick}) {
   return (
     <section className="flex p-4 md:px-6 lg:px-4 lg:pt-12">
       <div className="flex justify-between items-center w-full gap-4">
@@ -57,7 +57,7 @@ export default function MyTasksHeader() {
             <IoCalendarOutline className="text-[var(--text)] text-[18px]" />
             <p className="hidden lg:block font-[var(--ctaTxt)]">Calendar</p>
           </Button>
-          <Button variant="primary" className="inline-flex items-center gap-2 whitespace-nowrap !px-2 lg:!px-4">
+          <Button variant="primary" className="inline-flex items-center gap-2 whitespace-nowrap !px-2 lg:!px-4" onClick={onAddClick}>
             <IoAddOutline className="text-[var(--primary)] text-[18px]" />
             <p className="hidden lg:block font-[var(--ctaTxt)]">Add Tasks</p>
           </Button>

@@ -5,6 +5,7 @@ export default function Button({
     variant = "primary", // the default variant
     className = "", // empty so I can add other styles
     to,
+    onClick,
     ...props //collect props and pass to the button
 }) {
 
@@ -12,7 +13,7 @@ export default function Button({
 
     const variants = { //variants
     primary: "bg-[var(--cta)] text-[var(--primary)] text=ctatxt font-body shadow-sm",
-    secondary: "bg-[var(--secondary)] text-[var(--text)] text=ctatxt font-body border border-black/10 shadow-sm",
+    secondary: "bg-[var(--secondary)] text-[var(--text)] text-ctatxt font-body border border-black/10 shadow-sm",
     danger: "bg-[var(--danger)] text-white text=ctatxt font-body shadow-sm",
   };
 
@@ -29,6 +30,7 @@ export default function Button({
   }
   return (
     <button
+    onClick={onClick}
       className={`${baseStyles} ${variants[variant]} ${className}`}
       {...props}
     >
