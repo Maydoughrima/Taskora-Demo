@@ -6,10 +6,10 @@ export default function PricingSection() {
   return (
     <section
       id="pricing-section"
-      className="flex flex-col gap-6 bg-[var(--secondary)] px-4 py-12 sm:px-6 lg:px-8 lg:py-20 overflow-hidden items-center"
+      className="flex flex-col gap-6 bg-[var(--secondary)] px-4 py-8 sm:px-6 lg:px-8 lg:py-20 overflow-hidden items-center"
     >
       {/* content wrapper */}
-      <div className="w-full flex flex-col items-center justify-center gap-12">
+      <div className="w-full flex flex-col items-center justify-center gap-6">
         {/* PAGE HEADER */}
         <div className="flex flex-col gap-2">
           <Heading level={2}>Pricing That Scales With You</Heading>

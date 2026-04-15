@@ -16,11 +16,13 @@ export default function WorkOverView() {
           projectDate={user.ProjectDeadline}
           invoices={user.invoices}
         />
-        <div className="chart-container flex flex-col p-4 gap-6 border rounded-lg">
+        <div className="chart-container flex flex-col py-4 gap-6 border rounded-lg">
           {/* header */}
-          <p className="font-heading font-semibold text-md text-[rgba(0,0,0,0.7)] ">
+          <div className="px-4">
+            <p className="font-heading font-semibold text-md text-[rgba(0,0,0,0.7)] ">
             Revenue Overview
           </p>
+          </div>
           <RevenueChart data={user.monthlyRevenue}/>
         </div>
         <div className="deadline-container flex flex-col p-4 gap-6 border rounded-lg">

@@ -10,10 +10,10 @@ export default function WorkflowsSection (){
     return (
         <section
         id="worflows-section"
-        className="flex flex-col lg:flex-row gap-6 bg-gradient-to-r from-[rgb(43,130,246,0.3)] to-[var(--primary)] px-4 py-12 sm:px-6 lg:px-8 lg:py-20 overflow-hidden items-center"
+        className="flex flex-col lg:flex-row gap-6 bg-gradient-to-r from-[rgb(43,130,246,0.3)] to-[var(--primary)] px-4 py-8 sm:px-6 lg:px-8 lg:py-20 overflow-hidden items-center"
       >
         {/* content wrapper */}
-        <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-12">
+        <div className="w-full flex flex-col lg:flex-row items-center justify-center gap-6">
           {/* PAGE Title */}
           <div className="order-1 lg:order-2">
             <div className="flex flex-col gap-2">

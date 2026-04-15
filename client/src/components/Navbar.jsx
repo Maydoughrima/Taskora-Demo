@@ -136,7 +136,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex flex-col justify-between h-full gap-8">
+        <div className="flex flex-col h-full gap-8">
           {/* Links */}
           <ul className="flex flex-col gap-2 mt-8">
             <li>
@@ -263,7 +263,7 @@ export default function Navbar() {
             </ul>
           </div>
 
-          <div className="user-profile flex justify-between items-center p-2 py-4 border-t">
+          <div className="user-profile flex justify-between items-center p-2 py-4 border-t mt-auto">
             <div className="flex items-center gap-4">
               <img src={pfp} alt="pfp-img"
             className="rounded-md w-[40px] h-[40px]"
