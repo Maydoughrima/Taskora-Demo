@@ -2,7 +2,7 @@ import Button from "../UI/Button";
 import TaskProgressBar from "../UI/TaskProgressBar";
 import { PiDotOutlineFill } from "react-icons/pi";
 
-const TaskCardContent = ({ task = {} }) => {
+const TaskCardContent = ({ task = {}, onView }) => {
   const formatDate = (dateStr) => {
     const date = new Date(dateStr);
 
@@ -42,7 +42,9 @@ const TaskCardContent = ({ task = {} }) => {
 
       {/* card progress & deadline */}
       <div className="flex flex-col gap-1">
+        
         <TaskProgressBar value={task.progress} />
+        
 
         <div className="flex gap-3">
           <p className="font-body text-sm text-[var(--secondary400)]">
@@ -53,7 +55,9 @@ const TaskCardContent = ({ task = {} }) => {
           </p>
         </div>
 
-        <Button>View Tasks</Button>
+        <Button
+        onClick={onView}
+        >View Tasks</Button>
       </div>
     </div>
   );

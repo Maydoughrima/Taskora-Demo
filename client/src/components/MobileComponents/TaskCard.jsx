@@ -1,10 +1,12 @@
 import TaskDropdown from "../UI/TaskDropdown";
 import Button from "../UI/Button";
 import TaskCardContent from "./TaskCardContent";
-import {  useState } from "react";
+import TaskTable from "../UI/TaskTable";
+import { useState } from "react";
+import TaskModal from "../UI/TaskModal";
 
-export default function TaskCard({tasks = []}) {
-  //  Color mapping
+export default function TaskCard({ tasks = [], onDelete }) {
+  // Color mapping
   const getStatusColor = (status) => {
     switch (status) {
       case "To Do":
@@ -20,7 +22,6 @@ export default function TaskCard({tasks = []}) {
     }
   };
 
-  // Color mapping
   const getTextColor = (text) => {
     switch (text) {
       case "To Do":
@@ -41,17 +42,26 @@ export default function TaskCard({tasks = []}) {
         return "text-[var(--text)]";
     }
   };
+
   const [statusFilter, setStatusFilter] = useState("To Do");
   const [priorityFilter, setPriorityFilter] = useState("All");
+  const [selectedTask, setSelectedTask] = useState(null);
+
+  // ✅ FILTERED TASKS
+  const filteredTasks = tasks.filter((task) => {
+    const statusMatch = task.status === statusFilter;
+    const priorityMatch =
+      priorityFilter === "All" || task.priority === priorityFilter;
+
+    return statusMatch && priorityMatch;
+  });
 
   return (
     <section className="flex w-full p-2 md:px-6 lg:px-4">
-      {/* CARD CONTAINER */}
       <div className="flex flex-col p-2 gap-4 bg-[var(--secondary)] border w-full rounded-[16px]">
-        {/* CONTAINER HEADER */}
+        {/* HEADER */}
         <div className="flex justify-between">
-          {/* HEADER LEFT */}
-          <div className="flex gap-1 md:gap-4 ">
+          <div className="flex gap-1 md:gap-4">
             <TaskDropdown
               getStatusColor={getStatusColor}
               getTextColor={getTextColor}
@@ -59,11 +69,12 @@ export default function TaskCard({tasks = []}) {
               defaultValue="To Do"
               onSelect={(value) => setStatusFilter(value)}
             />
+
             <div className="flex gap-1">
-              {/* total task label */}
               <div className="items-center p-2 border rounded-md text-sm font-body text-[var(--text)] hidden md:block">
-                13
+                {filteredTasks.length}
               </div>
+
               <TaskDropdown
                 options={["All", "High", "Medium", "Low"]}
                 showIndicator={false}
@@ -82,7 +93,7 @@ export default function TaskCard({tasks = []}) {
               />
             </div>
           </div>
-          {/* HEADER RIGHT */}
+
           <Button
             className="bg-transparent shadow-none whitespace-nowrap"
             to="/Todo"
@@ -91,20 +102,53 @@ export default function TaskCard({tasks = []}) {
           </Button>
         </div>
 
-        <div className="flex flex-col gap-3">
-          {tasks
-            .filter((task) => {
-              const statusMatch = task.status === statusFilter;
-              const priorityMatch =
-                priorityFilter === "All" || task.priority === priorityFilter;
+        {/* ================= MOBILE ================= */}
+        <div className="flex flex-col gap-3 md:hidden">
+          {filteredTasks.map((task) => (
+            <TaskCardContent
+              key={task.taskId}
+              task={task}
+              onView={() => setSelectedTask(task)}
+            />
+          ))}
+        </div>
 
-              return statusMatch && priorityMatch;
-            })
-            .map((task) => (
-              <TaskCardContent key={task.taskId} task={task} />
-            ))}
+        {/* ================= TABLET+ ================= */}
+        <div className="hidden md:block">
+          <TaskTable
+            tasks={filteredTasks}
+            onView={(task) => setSelectedTask(task)}
+            onDelete={onDelete}
+          />
         </div>
       </div>
+
+      {/* MODAL */}
+      <TaskModal isOpen={!!selectedTask} onClose={() => setSelectedTask(null)}>
+        {selectedTask && (
+          <div className="flex flex-col gap-1">
+            <h2 className="font-body font-semibold text-[var(--text)] text-xl">
+              {selectedTask.taskName}
+            </h2>
+
+            <p className="text-[var(--secondary400)]">
+              Project: {selectedTask.projectName || "-"}
+            </p>
+            <p className="text-[var(--secondary400)]">
+              Client: {selectedTask.clientName || "-"}
+            </p>
+            <p className="text-[var(--secondary400)]">
+              Deadline: {selectedTask.deadline || "-"}
+            </p>
+            <p className="text-[var(--secondary400)]">
+              Priority: {selectedTask.priority || "-"}
+            </p>
+            <p className="text-[var(--secondary400)]">
+              Status: {selectedTask.status || "-"}
+            </p>
+          </div>
+        )}
+      </TaskModal>
     </section>
   );
 }
