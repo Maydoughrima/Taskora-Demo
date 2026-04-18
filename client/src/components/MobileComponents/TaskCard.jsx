@@ -47,18 +47,18 @@ export default function TaskCard({ tasks = [], onDelete }) {
   const [priorityFilter, setPriorityFilter] = useState("All");
   const [selectedTask, setSelectedTask] = useState(null);
 
-  // ✅ FILTERED TASKS
-  const filteredTasks = tasks.filter((task) => {
-    const statusMatch = task.status === statusFilter;
-    const priorityMatch =
-      priorityFilter === "All" || task.priority === priorityFilter;
+  //  FILTERED TASKS
+ const filteredTasks = tasks.filter((task) => {
+  const statusMatch = task.status === statusFilter;
+  const priorityMatch =
+    priorityFilter === "All" || task.priority === priorityFilter;
 
-    return statusMatch && priorityMatch;
-  });
+  return statusMatch && priorityMatch;
+});
 
   return (
     <section className="flex w-full p-2 md:px-6 lg:px-4">
-      <div className="flex flex-col p-2 gap-4 bg-[var(--secondary)] border w-full rounded-[16px]">
+      <div className="flex flex-col p-2 gap-4 bg-[var(--secondary)] border w-full rounded-[16px] animate-fadeIn">
         {/* HEADER */}
         <div className="flex justify-between">
           <div className="flex gap-1 md:gap-4">

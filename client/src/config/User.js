@@ -118,7 +118,7 @@ export const User = {
             clientName: "Sam Sulek",
             projectName: "TaskFlow App",
             progress: "10",
-            deadline: "2026-04-26",
+            deadline: "2026-04-27",
             priority: "High",
             status: "In Progress"
             
@@ -162,7 +162,7 @@ export const User = {
             clientName: "John Dao",
             projectName: "Orbit Platform",
             progress: "10",
-            deadline: "2024-07-2",
+            deadline: "2024-07-02",
             priority: "Medium",
             status: "Completed"
             
