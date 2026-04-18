@@ -131,6 +131,12 @@ export default function Calendar() {
     setCurrentDate(new Date(year, month + offset));
   };
 
+  const priorityClass = {
+  High: "bg-[var(--danger)]",
+  Medium: "bg-[var(--cta400)]",
+  Low: "bg-[var(--accent400)]",
+};
+
   return (
     <div className="p-4 md:px-6 lg:px-4 lg:pt-12 w-full">
       {/* HEADER */}
@@ -311,10 +317,10 @@ export default function Calendar() {
                     text-[10px] px-2 py-[3px] rounded-full text-white
                     ${
                       task.priority === "High"
-                        ? "bg-red-500"
+                        ? "bg-[var(--danger)]"
                         : task.priority === "Medium"
-                          ? "bg-yellow-500"
-                          : "bg-green-500"
+                          ? "bg-[var(--cta400)]"
+                          : "bg-[var(--accent400)]"
                     }
                   `}
                       >
