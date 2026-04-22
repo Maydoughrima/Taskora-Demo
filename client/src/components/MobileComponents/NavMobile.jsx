@@ -7,7 +7,7 @@ import { Notifs } from "../../config/Notifications";
 import { NavLink } from "react-router-dom";
 import { navItems } from "../../config/NavItems";
 import { IconMap } from "../../config/IconMap";
-import dummy1 from "../../assets/dummy1.jpg"
+import dummy1 from "../../assets/dummy1.jpg";
 
 export default function NavMobile({ className = "" }) {
   const [isNotifOpen, setIsNotifOpen] = useState(false);
@@ -24,7 +24,9 @@ export default function NavMobile({ className = "" }) {
   };
 
   // collect unique section names from navItems
-  const sections = [...new Set(navItems.map(item => item.section || "Others"))];
+  const sections = [
+    ...new Set(navItems.map((item) => item.section || "Others")),
+  ];
 
   return (
     <nav
@@ -32,7 +34,11 @@ export default function NavMobile({ className = "" }) {
     >
       <div className="image-container">
         <NavLink to="/">
-          <img src={logo} alt="logo" className="w-[50px] h-[50px] md:w-[80px] md:h-[80px] bg-center" />
+          <img
+            src={logo}
+            alt="logo"
+            className="w-[50px] h-[50px] md:w-[80px] md:h-[80px] bg-center"
+          />
         </NavLink>
       </div>
 
@@ -42,7 +48,11 @@ export default function NavMobile({ className = "" }) {
         </button>
 
         <NavLink to="/userpfp">
-        <img src={dummy1} alt="user-pfp" className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] rounded-full" />
+          <img
+            src={dummy1}
+            alt="user-pfp"
+            className="w-[30px] h-[30px] md:w-[40px] md:h-[40px] rounded-full"
+          />
         </NavLink>
 
         <button onClick={toggleMenu}>
@@ -69,9 +79,15 @@ export default function NavMobile({ className = "" }) {
                   alt={notif.title}
                   className="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full object-cover"
                 />
-                <p className="font-semibold font-heading md:text-2xl">{notif.name}</p>
-                <p className="text-sm text-gray-700 md:text-2xl">{notif.message}</p>
-                <p className="text-xs text-gray-400 md:text-2xl">{notif.time}</p>
+                <p className="font-semibold font-heading md:text-2xl">
+                  {notif.name}
+                </p>
+                <p className="text-sm text-gray-700 md:text-2xl">
+                  {notif.message}
+                </p>
+                <p className="text-xs text-gray-400 md:text-2xl">
+                  {notif.time}
+                </p>
               </div>
             ))}
           </div>
@@ -91,7 +107,7 @@ export default function NavMobile({ className = "" }) {
 
         {/* Mobile Menu */}
         <div
-          className={`flex flex-col fixed top-20 right-0 h-full rounded-3xl w-full bg-[var(--secondary)] z-50 p-6 md:p-12
+          className={`flex flex-col fixed top-20 right-0 h-full overflow-y-auto rounded-3xl w-full bg-[var(--secondary)] z-50 p-6 md:p-12
           transform transition-all duration-1000 ease-in-out
           ${isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
         >
