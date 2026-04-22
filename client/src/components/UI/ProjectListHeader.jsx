@@ -1,11 +1,17 @@
-import { IoSearchOutline, IoAddOutline, IoCalendarOutline } from "react-icons/io5";
+import {
+  IoSearchOutline,
+  IoAddOutline,
+  IoGridOutline,
+  IoListOutline,
+} from "react-icons/io5";
 import Button from "./Button";
 
-export default function MyTasksHeader({
-  onAddClick,
-  onOpenCalendar,
+export default function ProjectsListHeader({
+  onAddProject,
   search = "",
   setSearch = () => {},
+  view = "table",
+  setView = () => {},
 }) {
   return (
     <section className="flex p-4 md:px-6 lg:px-4 lg:pt-12">
@@ -20,7 +26,7 @@ export default function MyTasksHeader({
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               type="text"
-              placeholder="Search"
+              placeholder="Search..."
               className="
                 w-full
                 bg-[var(--secondary)]
@@ -38,28 +44,40 @@ export default function MyTasksHeader({
         </div>
 
         {/* ACTIONS */}
-        <div className="flex gap-1 lg:gap-2">
+        <div className="flex items-center gap-1 lg:gap-2">
           
-          {/* CALENDAR (ALL SCREENS) */}
-          <Button
-            variant="secondary"
-            className="inline-flex items-center gap-2"
-            onClick={onOpenCalendar}
-          >
-            <IoCalendarOutline className="text-[18px]" />
-            <p className="hidden md:block font-[var(--ctaTxt)]">Calendar</p>
-          </Button>
+          {/* VIEW TOGGLE */}
+          <div className="hidden md:flex items-center bg-[var(--secondary)] rounded-lg p-1">
+            <button
+              onClick={() => setView("table")}
+              className={`p-2 rounded-md transition ${
+                view === "table"
+                  ? "bg-white shadow text-[var(--text)]"
+                  : "opacity-60 hover:opacity-100"
+              }`}
+            >
+              <IoListOutline className="text-[18px]" />
+            </button>
+
+            <button
+              onClick={() => setView("grid")}
+              className={`p-2 rounded-md transition ${
+                view === "grid"
+                  ? "bg-white shadow text-[var(--text)]"
+                  : "opacity-60 hover:opacity-100"
+              }`}
+            >
+              <IoGridOutline className="text-[18px]" />
+            </button>
+          </div>
 
           {/* ADD */}
           <Button
             variant="primary"
             className="inline-flex items-center gap-2 whitespace-nowrap"
-            onClick={onAddClick}
+            onClick={onAddProject}
           >
             <IoAddOutline className="text-[var(--primary)] text-[18px]" />
-            <p className="hidden lg:block font-[var(--ctaTxt)]">
-              Add Tasks
-            </p>
           </Button>
         </div>
       </div>

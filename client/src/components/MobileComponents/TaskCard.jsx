@@ -48,13 +48,13 @@ export default function TaskCard({ tasks = [], onDelete }) {
   const [selectedTask, setSelectedTask] = useState(null);
 
   //  FILTERED TASKS
- const filteredTasks = tasks.filter((task) => {
-  const statusMatch = task.status === statusFilter;
-  const priorityMatch =
-    priorityFilter === "All" || task.priority === priorityFilter;
+  const filteredTasks = tasks.filter((task) => {
+    const statusMatch = task.status === statusFilter;
+    const priorityMatch =
+      priorityFilter === "All" || task.priority === priorityFilter;
 
-  return statusMatch && priorityMatch;
-});
+    return statusMatch && priorityMatch;
+  });
 
   return (
     <section className="flex w-full p-2 md:px-6 lg:px-4">
@@ -71,7 +71,7 @@ export default function TaskCard({ tasks = [], onDelete }) {
             />
 
             <div className="flex gap-1">
-              <div className="items-center p-2 border rounded-md text-sm font-body text-[var(--text)] hidden md:block">
+              <div className="hidden md:flex items-center px-3 py-2 border rounded-md text-sm text-[var(--text)]">
                 {filteredTasks.length}
               </div>
 
@@ -126,26 +126,110 @@ export default function TaskCard({ tasks = [], onDelete }) {
       {/* MODAL */}
       <TaskModal isOpen={!!selectedTask} onClose={() => setSelectedTask(null)}>
         {selectedTask && (
-          <div className="flex flex-col gap-1">
-            <h2 className="font-body font-semibold text-[var(--text)] text-xl">
-              {selectedTask.taskName}
-            </h2>
+          <div className="flex flex-col gap-5">
+            {/* HEADER */}
+            <div className="flex flex-col gap-1">
+              <h2 className="font-heading font-semibold text-2xl text-[var(--text)]">
+                {selectedTask.taskName}
+              </h2>
 
-            <p className="text-[var(--secondary400)]">
-              Project: {selectedTask.projectName || "-"}
-            </p>
-            <p className="text-[var(--secondary400)]">
-              Client: {selectedTask.clientName || "-"}
-            </p>
-            <p className="text-[var(--secondary400)]">
-              Deadline: {selectedTask.deadline || "-"}
-            </p>
-            <p className="text-[var(--secondary400)]">
-              Priority: {selectedTask.priority || "-"}
-            </p>
-            <p className="text-[var(--secondary400)]">
-              Status: {selectedTask.status || "-"}
-            </p>
+              <p className="text-sm text-[var(--secondary400)]">
+                Task Details Overview
+              </p>
+            </div>
+
+            {/* INFO CARD */}
+            <div className="flex flex-col gap-3 p-4 rounded-xl border bg-[var(--secondary)]">
+              {/* PROJECT */}
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-[var(--secondary400)]">Project</p>
+                <p className="text-sm font-medium text-[var(--text)]">
+                  {selectedTask.projectName || "-"}
+                </p>
+              </div>
+
+              {/* CLIENT */}
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-[var(--secondary400)]">Client</p>
+                <p className="text-sm font-medium text-[var(--text)]">
+                  {selectedTask.clientName || "-"}
+                </p>
+              </div>
+
+              {/* DEADLINE */}
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-[var(--secondary400)]">Deadline</p>
+                <p className="text-sm font-medium text-[var(--text)]">
+                  {selectedTask.deadline || "-"}
+                </p>
+              </div>
+
+              {/* PRIORITY */}
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-[var(--secondary400)]">Priority</p>
+
+                <span
+                  className={`px-2 py-1 rounded-md text-xs font-medium
+              ${
+                selectedTask.priority === "High"
+                  ? "bg-[var(--danger100)] text-[var(--danger400)]"
+                  : selectedTask.priority === "Medium"
+                    ? "bg-[var(--cta100)] text-[var(--cta)]"
+                    : selectedTask.priority === "Low"
+                      ? "bg-[var(--accent100)] text-[var(--accent)]"
+                      : "bg-[var(--secondary400)] text-[var(--text)]"
+              }`}
+                >
+                  {selectedTask.priority || "-"}
+                </span>
+              </div>
+
+              {/* STATUS */}
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-[var(--secondary400)]">Status</p>
+
+                <span
+                  className={`px-2 py-1 rounded-md text-xs font-medium
+              ${
+                selectedTask.status === "To Do"
+                  ? "bg-gray-200 text-gray-700"
+                  : selectedTask.status === "In Progress"
+                    ? "bg-[var(--cta100)] text-[var(--cta)]"
+                    : selectedTask.status === "Done"
+                      ? "bg-[var(--positive)] text-[var(--positive600)]"
+                      : "bg-[var(--secondary400)] text-[var(--text)]"
+              }`}
+                >
+                  {selectedTask.status || "-"}
+                </span>
+              </div>
+
+              {/* PROGRESS */}
+              <div className="flex justify-between items-center">
+                <p className="text-sm text-[var(--secondary400)]">Progress</p>
+                <p className="text-sm font-medium text-[var(--text)]">
+                  {selectedTask.progress ?? 0}%
+                </p>
+              </div>
+            </div>
+
+            {/* ACTIONS */}
+            <div className="flex gap-2">
+              <Button
+                className="flex-1"
+                onClick={() => console.log("Edit:", selectedTask.taskId)}
+              >
+                Edit Task
+              </Button>
+
+              <Button
+                className="flex-1 text-[var(--danger400)]"
+                variant="danger"
+                onClick={() => console.log("Delete:", selectedTask.taskId)}
+              >
+                Delete
+              </Button>
+            </div>
           </div>
         )}
       </TaskModal>

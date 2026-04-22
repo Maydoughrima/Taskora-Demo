@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { IoCheckmarkOutline } from "react-icons/io5";
 
-export default function ClientTable({ clients = [], onView, onDelete }) {
+export default function ProjectListTable({ projects = [], onView, onDelete }) {
   const [menu, setMenu] = useState({ id: null, top: 0, left: 0 });
 
-  const openMenu = (e, clientId) => {
+  const openMenu = (e, projectId) => {
     e.stopPropagation();
 
     const rect = e.currentTarget.getBoundingClientRect();
 
     setMenu((prev) =>
-      prev.id === clientId
+      prev.id === projectId
         ? { id: null, top: 0, left: 0 }
         : {
-            id: clientId,
+            id: projectId,
             top: rect.bottom + window.scrollY,
             left: rect.right + window.scrollX - 140,
           }
@@ -28,9 +28,20 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
 
     if (menu.id) document.addEventListener("click", handleClickOutside);
 
-    return () =>
-      document.removeEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [menu.id]);
+
+  const formatDate = (dateStr) => {
+    if (!dateStr) return "-";
+    const date = new Date(dateStr);
+    if (isNaN(date.getTime())) return "-";
+
+    return date.toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    });
+  };
 
   return (
     <div className="hidden md:block w-full overflow-x-auto relative rounded-[14px]">
@@ -40,21 +51,21 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
         <thead>
           <tr className="text-left text-sm bg-[var(--secondary600)] text-[var(--text)]">
             <th className="p-3 border font-body"><IoCheckmarkOutline className="text-[var(--text)] text-xl"/></th>
-            <th className="p-3 border font-body text-[var(--text)]">Client ID</th>
-            <th className="p-3 border font-body text-[var(--text)]">Name</th>
-            <th className="p-3 border font-body text-[var(--text)]">Contact</th>
-            <th className="p-3 border font-body text-[var(--text)]">Status</th>
-            <th className="p-3 border font-body text-[var(--text)]">Projects</th>
-            <th className="p-3 border font-body text-[var(--text)]">Revenue</th>
-            <th className="p-3 border font-body text-[var(--text)]">Action</th>
+            <th className="p-3 border font-body">Project ID</th>
+            <th className="p-3 border font-body">Project Name</th>
+            <th className="p-3 border font-body">Client</th>
+            <th className="p-3 border font-body">Priority</th>
+            <th className="p-3 border font-body">Status</th>
+            <th className="p-3 border font-body">Deadline</th>
+            <th className="p-3 border font-body">Action</th>
           </tr>
         </thead>
 
         {/* BODY */}
         <tbody>
-          {clients.map((client) => (
+          {projects.map((project) => (
             <tr
-              key={client.id}
+              key={project.id}
               className="hover:bg-[var(--secondary)] transition"
             >
               <td className="p-3 border">
@@ -62,32 +73,32 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
               </td>
 
               <td className="p-3 border text-xs text-[var(--secondary400)] font-body">
-                {client.id}
+                {project.id}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.name || "-"}
+                {project.projectname || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.contact || "-"}
+                {project.clientname || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.status || "-"}
+                {project.priority || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.projects ?? 0}
+                {project.status || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                ₱{client.revenue?.toLocaleString() || 0}
+                {formatDate(project.deadline)}
               </td>
 
               <td className="p-3 border relative text-center">
                 <button
-                  onClick={(e) => openMenu(e, client.id)}
+                  onClick={(e) => openMenu(e, project.id)}
                   className="p-2 rounded hover:bg-[var(--secondary)]"
                 >
                   <HiOutlineDotsHorizontal />
@@ -109,8 +120,8 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
         >
           <button
             onClick={() => {
-              const client = clients.find((c) => c.id === menu.id);
-              if (client) onView?.(client);
+              const project = projects.find((p) => p.id === menu.id);
+              if (project) onView?.(project);
               closeMenu();
             }}
             className="w-full text-left px-3 py-2 hover:bg-gray-100"

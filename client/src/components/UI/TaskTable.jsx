@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
+import { IoCheckmarkOutline } from "react-icons/io5";
 
 export default function TaskTable({ tasks = [], onView, onDelete }) {
   const [menu, setMenu] = useState({ id: null, top: 0, left: 0 });
@@ -46,7 +47,7 @@ export default function TaskTable({ tasks = [], onView, onDelete }) {
         {/* HEADER */}
         <thead>
           <tr className="text-left text-sm bg-[var(--secondary600)] text-[var(--text)]">
-            <th className="p-3 border font-body text-[var(--text)]">✔</th>
+            <th className="p-3 border font-body"><IoCheckmarkOutline className="text-[var(--text)] text-xl"/></th>
             <th className="p-3 border font-body text-[var(--text)]">Task ID</th>
             <th className="p-3 border font-body text-[var(--text)]">Task Name</th>
             <th className="p-3 border font-body text-[var(--text)]">Project</th>

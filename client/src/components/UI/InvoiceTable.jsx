@@ -2,19 +2,19 @@ import { useState, useEffect } from "react";
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 import { IoCheckmarkOutline } from "react-icons/io5";
 
-export default function ClientTable({ clients = [], onView, onDelete }) {
+export default function InvoiceTable({ invoices = [], onView, onDelete }) {
   const [menu, setMenu] = useState({ id: null, top: 0, left: 0 });
 
-  const openMenu = (e, clientId) => {
+  const openMenu = (e, invoiceId) => {
     e.stopPropagation();
 
     const rect = e.currentTarget.getBoundingClientRect();
 
     setMenu((prev) =>
-      prev.id === clientId
+      prev.id === invoiceId
         ? { id: null, top: 0, left: 0 }
         : {
-            id: clientId,
+            id: invoiceId,
             top: rect.bottom + window.scrollY,
             left: rect.right + window.scrollX - 140,
           }
@@ -39,22 +39,24 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
         {/* HEADER */}
         <thead>
           <tr className="text-left text-sm bg-[var(--secondary600)] text-[var(--text)]">
-            <th className="p-3 border font-body"><IoCheckmarkOutline className="text-[var(--text)] text-xl"/></th>
-            <th className="p-3 border font-body text-[var(--text)]">Client ID</th>
-            <th className="p-3 border font-body text-[var(--text)]">Name</th>
-            <th className="p-3 border font-body text-[var(--text)]">Contact</th>
+            <th className="p-3 border font-body">
+              <IoCheckmarkOutline className="text-[var(--text)] text-xl" />
+            </th>
+            <th className="p-3 border font-body text-[var(--text)]">Invoice ID</th>
+            <th className="p-3 border font-body text-[var(--text)]">Client</th>
+            <th className="p-3 border font-body text-[var(--text)]">Due Date</th>
             <th className="p-3 border font-body text-[var(--text)]">Status</th>
-            <th className="p-3 border font-body text-[var(--text)]">Projects</th>
-            <th className="p-3 border font-body text-[var(--text)]">Revenue</th>
+            <th className="p-3 border font-body text-[var(--text)]">Items</th>
+            <th className="p-3 border font-body text-[var(--text)]">Amount</th>
             <th className="p-3 border font-body text-[var(--text)]">Action</th>
           </tr>
         </thead>
 
         {/* BODY */}
         <tbody>
-          {clients.map((client) => (
+          {invoices.map((invoice) => (
             <tr
-              key={client.id}
+              key={invoice.id}
               className="hover:bg-[var(--secondary)] transition"
             >
               <td className="p-3 border">
@@ -62,32 +64,32 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
               </td>
 
               <td className="p-3 border text-xs text-[var(--secondary400)] font-body">
-                {client.id}
+                {invoice.invoiceId}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.name || "-"}
+                {invoice.clientName || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.contact || "-"}
+                {invoice.dueDate || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.status || "-"}
+                {invoice.status || "-"}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                {client.projects ?? 0}
+                {invoice.items ?? 0}
               </td>
 
               <td className="p-3 border text-[var(--secondary400)] font-body">
-                ₱{client.revenue?.toLocaleString() || 0}
+                ₱{invoice.amount?.toLocaleString() || 0}
               </td>
 
               <td className="p-3 border relative text-center">
                 <button
-                  onClick={(e) => openMenu(e, client.id)}
+                  onClick={(e) => openMenu(e, invoice.id)}
                   className="p-2 rounded hover:bg-[var(--secondary)]"
                 >
                   <HiOutlineDotsHorizontal />
@@ -109,8 +111,8 @@ export default function ClientTable({ clients = [], onView, onDelete }) {
         >
           <button
             onClick={() => {
-              const client = clients.find((c) => c.id === menu.id);
-              if (client) onView?.(client);
+              const invoice = invoices.find((i) => i.id === menu.id);
+              if (invoice) onView?.(invoice);
               closeMenu();
             }}
             className="w-full text-left px-3 py-2 hover:bg-gray-100"

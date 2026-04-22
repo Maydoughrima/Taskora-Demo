@@ -4,7 +4,7 @@ export const navItems = [
     {label:"Calendar", path:"/calendar", icon:"calendar", section: "Main"},
     {label:"Client List", path:"/clientlist", icon:"users", section: "Management"},
     {label:"Project List", path:"/projectslist", icon:"folder", section: "Management"},
-    {label:"Invoice List", path:"/invoiceList", icon:"invoice", section: "Management"},
+    {label:"Invoice List", path:"/invoicelist", icon:"invoice", section: "Management"},
     {label:"AI Insights", path:"/aiInsights", icon:"wand", section: "Insights"},
     {label:"Analytics", path:"/analytics", icon:"analytics", section: "Insights"},
     {label:"Reports", path:"/reports", icon:"chart", section: "Insights"},

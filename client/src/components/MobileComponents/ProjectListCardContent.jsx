@@ -1,20 +1,32 @@
 import Button from "../UI/Button";
 import { PiDotOutlineFill } from "react-icons/pi";
 
-const ClientCardContent = ({ client = {}, onView }) => {
-  const getStatusColor = (status) => {
-    switch (status) {
-      case "Active":
-        return "text-[var(--positive600)]";
-      case "Completed":
+const ProjectListCardContent = ({ project = {}, onView }) => {
+  const formatDate = (dateStr) => {
+  if (!dateStr) return "-";
+
+  const date = new Date(dateStr);
+
+  if (isNaN(date.getTime())) return "-";
+
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+  const getPriorityColor = (priority) => {
+    switch (priority) {
+      case "High":
+        return "text-[var(--danger400)]";
+      case "Medium":
+        return "text-[var(--cta)]";
+      case "Low":
         return "text-[var(--accent)]";
       default:
         return "text-[var(--text)]";
     }
-  };
-
-  const formatCurrency = (value) => {
-    return `₱${value?.toLocaleString() || 0}`;
   };
 
   return (
@@ -25,49 +37,59 @@ const ClientCardContent = ({ client = {}, onView }) => {
         <div className="flex justify-between items-center">
           
           <p className="font-heading font-semibold text-xl text-[var(--text)]">
-            {client.name}
+            {project.projectname}
           </p>
 
-          {/* DOT STATUS */}
+          {/* MOBILE DOT */}
           <PiDotOutlineFill
-            className={`text-3xl ${getStatusColor(client.status)}`}
+            className={`text-3xl ${getPriorityColor(project.priority)} md:hidden`}
           />
+
+          {/* DESKTOP TEXT */}
+          <span
+            className={`hidden md:block text-xs font-medium ${getPriorityColor(
+              project.priority
+            )}`}
+          >
+            {project.priority}
+          </span>
         </div>
 
         <p className="text-[var(--secondary400)] font-body text-sm">
-          {client.contact}
+          {project.clientname}
         </p>
       </div>
 
-      {/* META */}
+      {/* META (MATCHING TASK STYLE) */}
       <div className="flex flex-col gap-1">
 
+        {/* STATUS */}
         <div className="flex gap-2">
           <p className="text-sm text-[var(--secondary400)] font-body">
-            Projects:
+            Status:
           </p>
           <p className="text-sm text-[var(--secondary400)] font-body">
-            {client.projects ?? 0}
+            {project.status || "-"}
           </p>
         </div>
 
+        {/* DEADLINE */}
         <div className="flex gap-2">
           <p className="text-sm text-[var(--secondary400)] font-body">
-            Revenue:
+            Deadline:
           </p>
           <p className="text-sm text-[var(--secondary400)] font-body">
-            {formatCurrency(client.revenue)}
+            {formatDate(project.deadline)}
           </p>
         </div>
-
       </div>
 
       {/* ACTION */}
       <Button onClick={onView}>
-        View Client
+        View Project
       </Button>
     </div>
   );
 };
 
-export default ClientCardContent;
+export default ProjectListCardContent;
