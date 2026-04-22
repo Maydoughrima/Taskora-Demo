@@ -5,6 +5,8 @@ import AppLayout from "./layouts/AppLayout";
 import DashboardLayouts from "./layouts/DashboardLayouts";
 import MyTasksLayout from "./layouts/MyTasksLayout";
 import CalendarLayout from "./layouts/CalendarLayout";
+import ClientsListLayout from "./layouts/ClientsListLayout"
+import ProjectsListLayout from "./layouts/ProjectsListLayout";
 
 /* Pages */
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -12,6 +14,8 @@ import Dashboard from "./pages/app/Dashboard";
 import Products from "./pages/app/Products";
 import MyTasks from "./pages/app/MyTasks";
 import Calendar from "./pages/app/Calendar";
+import ClientList from "./pages/app/ClientList";
+import ProjectsList from "./pages/app/ProjectsList";
 
 function App() {
   return (
@@ -38,6 +42,16 @@ function App() {
       <Route element = {<CalendarLayout/>}>
        {/* Optional Pages */}
         <Route path="/calendar" element={<Calendar/>} />
+      </Route>
+      
+      <Route element = {<ClientsListLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/clientlist" element={<ClientList/>} />
+      </Route>
+
+      <Route element = {<ProjectsListLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/projectslist" element={<ProjectsList/>} />
       </Route>
 
       {/* Fallback */}
