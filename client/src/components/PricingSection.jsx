@@ -36,7 +36,6 @@ export default function PricingSection() {
               "Email Support",
             ]}
             featuresClass="text-[var(--text)]"
-            iconClass="text-[var(--text)]"
             btn="Get Started"
             btnClass="transition-all hover:bg-[var(--cta)] duration-300 hover:-translate-y-1"
           />
@@ -59,8 +58,7 @@ export default function PricingSection() {
             ]}
             featuresClass="text-[var(--text)]"
             btn="Upgrade to Pro"
-            btnClass="bg-transparent border border-[var(--text)]/50 text-[var(--text)] transition-all hover:bg-[var(--cta)] duration-300 hover:-translate-y-1 hover:text-[var(--primary)]"
-            iconClass="text-[var(--text)]"
+            btnClass="transition-all hover:bg-[var(--cta)] duration-300 hover:-translate-y-1"
           />
 
           <PricingCard
@@ -82,6 +80,7 @@ export default function PricingSection() {
             ]}
             btn="Contact Sales"
             btnClass="bg-transparent border border-[var(--text)]/50 text-[var(--primary)] transition-all hover:bg-[var(--cta)] hover:border-none duration-300 hover:-translate-y-1"
+            iconClass="text-[var(--primary)]"
           />
         </div>
       </div>

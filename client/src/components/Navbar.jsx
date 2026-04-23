@@ -75,7 +75,7 @@ export default function Navbar() {
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
                 hover:scale-105"
-                to="/customers"
+                to="/customer"
               >
                 Customers
               </NavLink>
@@ -86,7 +86,7 @@ export default function Navbar() {
                 transition-all duration-300 
                 hover:text-[var(--accent)] 
                 hover:scale-105"
-                to="/contactUs"
+                to="/contactus"
               >
                 Contact Us
               </NavLink>
@@ -111,7 +111,7 @@ export default function Navbar() {
               <Button
                 variant="secondary"
                 className="rounded-[8px] transition-transform duration-300 hover:scale-105"
-                to="/signup"
+                to="/register"
               >
                 Sign Up
               </Button>

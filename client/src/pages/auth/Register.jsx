@@ -68,7 +68,7 @@ export default function Register() {
           
           <img src={taskora} className="w-full h-full object-cover" />
 
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-black/3" />
 
           <div className="absolute bottom-5 left-5 right-5 backdrop-blur-xl bg-black/50 border border-white/10 rounded-xl p-4 flex items-center justify-between">
             

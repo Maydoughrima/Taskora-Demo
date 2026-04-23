@@ -9,6 +9,10 @@ import ClientsListLayout from "./layouts/ClientsListLayout"
 import ProjectsListLayout from "./layouts/ProjectsListLayout";
 import InvoiceListLayout from "./layouts/InvoiceListLayout";
 import ProductsLayout from "./layouts/ProductsLayout";
+import FeaturesLayout from "./layouts/FeaturesLayout";
+import PricingLayout from "./layouts/PricingLayout";
+import CustomerLayout from "./layouts/CustomerLayout";
+import ContactUsLayout from "./layouts/ContactUsLayout";
 
 /* Pages */
 import LandingPage from "./pages/LandingPage/LandingPage";
@@ -21,6 +25,10 @@ import ProjectsList from "./pages/app/ProjectsList";
 import InvoiceList from "./pages/app/InvoiceList";
 import Login from "./pages/auth/Login"
 import Register from "./pages/auth/Register"
+import FeaturesPage from "./pages/app/FeaturesPage";
+import PricingPage from "./pages/app/PricingPage";
+import CustomerPage from "./pages/app/CustomerPage";
+import ContactUsPage from "./pages/app/ContactUsPage";
 
 function App() {
   return (
@@ -66,6 +74,26 @@ function App() {
       <Route element = {<ProductsLayout/>}>
        {/* Optional Pages */}
         <Route path="/products" element={<Products/>} />
+      </Route>
+
+      <Route element = {<FeaturesLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/features" element={<FeaturesPage/>} />
+      </Route>
+
+      <Route element = {<PricingLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/pricing" element={<PricingPage/>} />
+      </Route>
+
+      <Route element = {<CustomerLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/customer" element={<CustomerPage/>} />
+      </Route>
+
+      <Route element = {<ContactUsLayout/>}>
+       {/* Optional Pages */}
+        <Route path="/contactus" element={<ContactUsPage/>} />
       </Route>
       
       <Route path="/login" element={<Login/>} />

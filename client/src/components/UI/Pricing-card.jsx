@@ -39,10 +39,10 @@ const PricingCard = ({
       {/* features */}
       <div className="features pb-8">
         <p className={`font-body mb-4 ${featuresClass}`}>Features:</p>
-        <ul className="flex flex-col">
+        <ul className="flex flex-col font-body gap-2">
           {features.map((feature, index) => (
             <li key={index} className="flex items-center gap-2 text-sm">
-              <FaCheck  className={`${iconClass}`}/>
+              <FaCheck  className={`${iconClass} text-[var(--cta)]`}/>
               {feature}
             </li>
           ))}

@@ -49,7 +49,7 @@ export default function ProductsSection() {
   ];
 
   return (
-    <section className="flex flex-col gap-12 p-4 md:px-6 lg:px-4 lg:pt-12 bg-[var(--primary)]">
+    <section className="flex flex-col gap-14 p-4 md:px-6 lg:px-4 lg:pt-12 bg-[var(--primary)]">
 
       {/* HERO */}
       <div className="text-center flex flex-col gap-4">
@@ -58,7 +58,7 @@ export default function ProductsSection() {
         </h1>
 
         <p className="text-[var(--secondary400)] max-w-2xl mx-auto text-sm md:text-base font-body">
-          Taskora unifies your workflow into one clean system — designed to keep you focused and fast.
+          Taskora unifies your workflow into one clean system — designed for speed, focus, and control.
         </p>
       </div>
 
@@ -68,20 +68,23 @@ export default function ProductsSection() {
         {products.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col border border-[var(--border)]/40 bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+            className="group relative flex flex-col overflow-hidden rounded-2xl border border-[var(--border)]/30 bg-[rgba(255,255,255,0.03)] backdrop-blur-md shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
           >
 
+            {/* subtle glow overlay */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300 bg-gradient-to-br from-[var(--cta)]/10 via-transparent to-transparent pointer-events-none" />
+
             {/* IMAGE */}
-            <div className="h-40 w-full overflow-hidden bg-[var(--background)]">
+            <div className="h-44 w-full overflow-hidden bg-[var(--background)]">
               <img
                 src={item.img}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
               />
             </div>
 
             {/* CONTENT */}
-            <div className="flex flex-col gap-2 p-5">
+            <div className="flex flex-col gap-3 p-5 relative z-10">
 
               <h2 className="text-lg font-semibold text-[var(--text)] font-body">
                 {item.title}
@@ -94,7 +97,7 @@ export default function ProductsSection() {
               {/* CTA */}
               <Link
                 to={item.link}
-                className="mt-4 flex items-center gap-2 text-sm font-medium text-[var(--cta)] hover:gap-3 transition-all duration-200"
+                className="mt-3 inline-flex items-center gap-2 text-sm font-medium text-[var(--cta)] group-hover:gap-3 transition-all duration-300"
               >
                 Open Module
                 <FaArrowRightLong className="w-4 h-4" />

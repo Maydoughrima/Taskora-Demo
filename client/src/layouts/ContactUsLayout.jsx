@@ -1,8 +1,8 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import { Outlet } from "react-router-dom";
 
-export default function ProductsLayout() {
+export default function ContactUsLayout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -10,5 +10,5 @@ export default function ProductsLayout() {
         <Outlet />
       </main>
     </div>
-  );
+  )
 }
