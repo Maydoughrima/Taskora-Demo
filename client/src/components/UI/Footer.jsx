@@ -60,7 +60,7 @@ export default function Footer(){
               </p>
             </div>
             {/* right */}
-            <div className="flex flex-col md:flex-row gap-2 order-1 md:order-2">
+            <div className="flex flex-col md:flex-row gap-4 order-1 md:order-2">
               <Link
                 to="/"
                 className="text-[color:rgba(0,0,0,0.6)] font-body underline underline-offset-4 decoration-[color:rgba(0,0,0,0.6)]"

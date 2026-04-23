@@ -78,6 +78,9 @@ export default function ProjectsListHeader({
             onClick={onAddProject}
           >
             <IoAddOutline className="text-[var(--primary)] text-[18px]" />
+            <p className="hidden lg:block font-[var(--ctaTxt)]">
+              Add Client
+            </p>
           </Button>
         </div>
       </div>

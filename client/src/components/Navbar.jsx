@@ -24,10 +24,15 @@ export default function Navbar() {
       <nav className="bg-[var(--primary)] p-2 md:p-4 lg:px-8 lg:py-4 xl:px-8 xl:py-4">
         <div className="flex justify-between items-center">
           {/* logo */}
-          <div className="Logo flex items-center font-semibold text-[var(--primary-text)]">
+          <NavLink
+            to="/"
+            className="Logo flex items-center font-semibold text-[var(--primary-text)]"
+          >
             <img src={logo} alt="logo" className="h-12 w-12 md:h-14 md:w-14" />
-            <p className="font-heading text-lg hidden md:block">TASKORA</p>
-          </div>
+            <p className="font-heading text-lg hidden md:block text-[var(--text)]">
+              TASKORA
+            </p>
+          </NavLink>
 
           {/* class-links */}
           <ul className="nav-links hidden lg:flex gap-4">
@@ -95,6 +100,7 @@ export default function Navbar() {
               <Button
                 variant="primary"
                 className="rounded-[8px] transition-transform duration-300 hover:scale-105"
+                to="/login"
               >
                 Login
               </Button>
@@ -105,6 +111,7 @@ export default function Navbar() {
               <Button
                 variant="secondary"
                 className="rounded-[8px] transition-transform duration-300 hover:scale-105"
+                to="/signup"
               >
                 Sign Up
               </Button>
@@ -265,12 +272,16 @@ export default function Navbar() {
 
           <div className="user-profile flex justify-between items-center p-2 py-4 border-t mt-auto">
             <div className="flex items-center gap-4">
-              <img src={pfp} alt="pfp-img"
-            className="rounded-md w-[40px] h-[40px]"
-            />
+              <img
+                src={pfp}
+                alt="pfp-img"
+                className="rounded-md w-[40px] h-[40px]"
+              />
 
-            <p className="text-[var(--text)] font-body font-medium">Jane Does</p>   
-            </div>   
+              <p className="text-[var(--text)] font-body font-medium">
+                Jane Does
+              </p>
+            </div>
             <HiOutlineUserCircle className="text-[var(--cta)] text-2xl" />
           </div>
         </div>

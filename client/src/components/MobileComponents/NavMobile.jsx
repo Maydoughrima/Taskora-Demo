@@ -107,7 +107,7 @@ export default function NavMobile({ className = "" }) {
 
         {/* Mobile Menu */}
         <div
-          className={`flex flex-col fixed top-20 right-0 h-full overflow-y-auto rounded-3xl w-full bg-[var(--secondary)] z-50 p-6 md:p-12
+          className={`flex flex-col fixed top-10 right-0 h-full overflow-y-auto rounded-3xl w-full bg-[var(--secondary)] z-50 p-6 md:p-12
           transform transition-all duration-1000 ease-in-out
           ${isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"}`}
         >

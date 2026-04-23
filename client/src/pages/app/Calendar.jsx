@@ -3,6 +3,7 @@ import { User } from "../../config/User";
 import CalendarTask from "../../components/UI/CalendarTask";
 import Button from "../../components/UI/Button";
 import Input from "../../components/UI/Input";
+import {IoAddOutline} from "react-icons/io5";
 
 const TASKS_KEY = "taskora_tasks_v1";
 
@@ -132,10 +133,10 @@ export default function Calendar() {
   };
 
   const priorityClass = {
-  High: "bg-[var(--danger)]",
-  Medium: "bg-[var(--cta400)]",
-  Low: "bg-[var(--accent400)]",
-};
+    High: "bg-[var(--danger)]",
+    Medium: "bg-[var(--cta400)]",
+    Low: "bg-[var(--accent400)]",
+  };
 
   return (
     <div className="p-4 md:px-6 lg:px-4 lg:pt-12 w-full">
@@ -155,8 +156,13 @@ export default function Calendar() {
           </button>
         </div>
 
-        <Button variant="primary" onClick={() => setIsOpen(true)}>
-          + Add Task
+        <Button
+          variant="primary"
+          className="inline-flex items-center gap-2 whitespace-nowrap"
+          onClick={() => setIsOpen(true)}
+        >
+          <IoAddOutline className="text-[var(--primary)] text-[18px]" />
+          <p className="hidden lg:block font-[var(--ctaTxt)]">Add Task</p>
         </Button>
       </div>
 
@@ -314,13 +320,13 @@ export default function Calendar() {
                       {/* PRIORITY BADGE */}
                       <span
                         className={`
-                    text-[10px] px-2 py-[3px] rounded-full text-white
+                    text-[10px] px-2 py-[3px] rounded-full
                     ${
                       task.priority === "High"
-                        ? "bg-[var(--danger)]"
+                        ? "bg-[var(--danger)] text-[var(--danger400)]"
                         : task.priority === "Medium"
-                          ? "bg-[var(--cta400)]"
-                          : "bg-[var(--accent400)]"
+                          ? "bg-[var(--cta400)] text-[var(--cta)]"
+                          : "bg-[var(--accent400)] text-[var(--accent)]"
                     }
                   `}
                       >

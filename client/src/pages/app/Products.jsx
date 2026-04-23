@@ -1,7 +1,7 @@
-import Navbar from "../../components/Navbar";
+import ProductsSection from "../../components/UI/ProductsSection";
 
 export default function Products(){
     return(
-        <h1>HELLO FUCKING WORLD</h1>
+        <ProductsSection/>
     );
 }

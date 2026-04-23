@@ -15,7 +15,7 @@ export default function ClientList() {
   const [form, setForm] = useState({
     name: "",
     contact: "",
-    status: "Active",
+    status: "Active", 
     projects: 0,
   });
 
