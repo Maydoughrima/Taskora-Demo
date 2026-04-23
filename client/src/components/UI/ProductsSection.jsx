@@ -3,7 +3,7 @@ import tasksImg from "../../assets/tasksImg.png";
 import calendarImg from "../../assets/calendarImg.png";
 import clientsImg from "../../assets/clientsImg.png";
 import projectsImg from "../../assets/projectsImg.png";
-import invoiceImg from "../../assets/invoiceImg.png";
+import invoiceImg from "../../assets/InvoiceImg.png";
 
 import { Link } from "react-router-dom";
 import { FaArrowRightLong } from "react-icons/fa6";
