@@ -19,7 +19,7 @@ export default function Button({
     secondary:
       "bg-[var(--secondary)] text-[var(--text)] border border-black/10 shadow-sm hover:bg-white",
     danger:
-      "bg-[var(--danger)] text-white shadow-sm hover:opacity-90",
+      "bg-[var(--danger)] text-var[(--danger400)] shadow-sm hover:opacity-90",
   };
 
   if (to) {
